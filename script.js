@@ -33,29 +33,38 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    
-    for (let match = 0; match < 5; match++) {
-        let player = prompt("Rock, Paper or Scissor? ");
-        let computer = getComputerChoice();
-        let roundOutcome = playRound(player, computer);
+function removeTransition(e) {
+    if (e.propertyName !== "transform") return;
+    this.classList.remove("clicking");
+}
 
-        if (roundOutcome === "Lost") {
-            computerScore++;
-        }
-        else if (roundOutcome === "Won") {
-            playerScore++;
-        }
+function showModal(contentHtml, buttons) {
+    const modal = document.createElement("div");
+
+    modal.classList.add("modal");
+    modal.innerHTML = `
+        <div class="inner_modal">
+            <div class="modal_content">${contentHtml}</div>
+            <div class="modal_bottom"></div>
+        </div>
+    `;
+
+    for (const button of buttons) {
+        const element = document.createElement("button");
+
+        element.setAttribute("type", "button");
+        element.classList.add("modal_button");
+        element.textContent = button.label;
+        element.addEventListener("click", () => {
+            if (button.triggerClose) {
+                document.body.removeChild(modal);
+            }
+
+            button.onClick(modal);
+        });
+
+        modal.querySelector(".modal_bottom").appendChild(element);
     }
-    if (playerScore > computerScore) {
-        console.log("Congratulations! You won");
-    }
-    else if (playerScore < computerScore) {
-        console.log("Oops! You lost");
-    }
-    else {
-        console.log("It's a Tie")
-    }
+
+    document.body.appendChild(modal);
 }
