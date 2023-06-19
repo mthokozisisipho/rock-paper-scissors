@@ -87,4 +87,13 @@ const intro = document.createElement("p");
 intro.textContent = `You and your friend have a hard time deciding what to eat for dinner.
                     So you decide to play rock paper scissors.
                     Who reaches the score of five wins the game.`;
-                    
+
+showModal(intro.textContent, [
+    {
+        label: "Proceed",
+        onClick: modal => {
+            console.log("Proceed");
+        },
+        triggerClose: true
+    }
+]);
