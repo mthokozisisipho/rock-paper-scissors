@@ -78,3 +78,13 @@ function changeCompImage(tool) {
     const image = document.querySelector(".computer img");
     image.src = `/images/${tool}.png`;
 }
+
+const buttons = document.querySelectorAll("button");
+let playerScore = 0;
+let computerScore = 0;
+
+const intro = document.createElement("p");
+intro.textContent = `You and your friend have a hard time deciding what to eat for dinner.
+                    So you decide to play rock paper scissors.
+                    Who reaches the score of five wins the game.`;
+                    
