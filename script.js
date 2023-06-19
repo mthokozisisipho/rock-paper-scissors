@@ -68,3 +68,13 @@ function showModal(contentHtml, buttons) {
 
     document.body.appendChild(modal);
 }
+
+function changePlayerImage(tool) {
+    const image = document.querySelector(".player img");
+    image.src = `/images/${tool}.png`;
+}
+
+function changeCompImage(tool) {
+    const image = document.querySelector(".computer img");
+    image.src = `/images/${tool}.png`;
+}
