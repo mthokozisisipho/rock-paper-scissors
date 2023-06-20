@@ -87,8 +87,8 @@ let computerScore = 0;
 
 const intro = document.createElement("p");
 intro.textContent = `You and your friend have a hard time deciding what to eat for dinner.
-                    So you decide to play rock paper scissors.
-                    Who reaches the score of five wins the game.`;
+                    So you decide to play "Rock Paper Scissors".
+                    Who reaches the score of five, wins the game.`;
 
 showModal(intro.textContent, [
     {
