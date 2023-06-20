@@ -147,3 +147,6 @@ buttons.forEach((button) => {
         }
     });
 });
+
+const btns = document.querySelectorAll("button");
+btns.forEach(btn => btn.addEventListener("transitionend", removeTransition));
