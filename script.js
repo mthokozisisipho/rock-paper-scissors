@@ -97,3 +97,53 @@ showModal(intro.textContent, [
         triggerClose: true
     }
 ]);
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        button.classList.add("clicking");
+        
+        const computerChoice = getComputerChoice();
+        
+        const round = playRound(button.id, computerChoice);
+        changePlayerImage(button.id);
+        changeCompImage(computerChoice);
+
+
+        if (round === "Won") {
+            player.textContent = `Player: ${++playerScore}`;
+            if (playerScore === 5) {
+                showModal("<p>Congratulations! You won.</p>", [
+                    {
+                        label: "Play again",
+                        onClick: modal => {
+                            playerScore = 0;
+                            computerScore = 0;
+                            player.textContent = `Player: ${playerScore}`;
+                            computer.textContent = `Computer: ${computerScore}`;
+                        },
+                        triggerClose: true
+                    }
+                ]);
+                
+            }
+            
+        }
+        else if (round === "Lost") {
+            computer.textContent = `Computer: ${++computerScore}`;
+            if (computerScore === 5) {
+                showModal("<p>Oops! You lost.</p>", [
+                    {
+                        label: "Try again",
+                        onClick: modal => {
+                            playerScore = 0;
+                            computerScore = 0;
+                            player.textContent = `Player: ${playerScore}`;
+                            computer.textContent = `Computer: ${computerScore}`;
+                        },
+                        triggerClose: true
+                    }
+                ]);
+            }
+        }
+    });
+});
