@@ -80,6 +80,8 @@ function changeCompImage(tool) {
 }
 
 const buttons = document.querySelectorAll("button");
+const player = document.querySelector(".player .score");
+const computer = document.querySelector(".computer .score");
 let playerScore = 0;
 let computerScore = 0;
 
