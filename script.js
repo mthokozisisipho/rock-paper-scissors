@@ -71,12 +71,12 @@ function showModal(contentHtml, buttons) {
 
 function changePlayerImage(tool) {
     const image = document.querySelector(".player img");
-    image.src = `/images/${tool}.png`;
+    image.src = `./images/${tool}.png`;
 }
 
 function changeCompImage(tool) {
     const image = document.querySelector(".computer img");
-    image.src = `/images/${tool}.png`;
+    image.src = `./images/${tool}.png`;
 }
 
 const buttons = document.querySelectorAll("button");
